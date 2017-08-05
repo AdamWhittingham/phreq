@@ -6,8 +6,7 @@ defmodule GlanceWeb.Router do
     plug CORSPlug, origin: ["http://localhost:3000", "http://localhost:4000"]
   end
 
-  # Other scopes may use custom stacks.
-  # scope "/api", GlanceWeb do
-  #   pipe_through :api
-  # end
+  forward "/", Absinthe.Plug,
+    schema: Glance.Schema
+
 end
